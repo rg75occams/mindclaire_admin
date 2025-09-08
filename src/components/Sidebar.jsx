@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { TbArrowNarrowLeft } from 'react-icons/tb';
 import { LOCAL_STORAGE } from '../constant';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -65,11 +65,11 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
         >
             <div className="flex items-center justify-between gap-2 px-6 py-[7.5px] border-b border-[#A3A3A3] shadow-sm">
-                <NavLink to="#" className="flex flex-row items-center justify-center">
+                <Link to="#" className="flex flex-row items-center justify-center">
                     <img loading="lazy" src={'/assets/logo_white.svg'}
                         alt="Logo" className="h-[60px] invert-0"
                     />
-                </NavLink>
+                </Link>
 
                 <button ref={trigger} onClick={() => setIsOpen(!isOpen)} aria-controls="sidebar"
                     aria-expanded={isOpen} className="block lg:hidden cursor-pointer"
@@ -82,7 +82,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
                     <nav className="py-4 px-4 lg:px-6">
                         <ul className="flex flex-col gap-1.5">
-                            <NavLink to="/dashboard" className={`group relative flex items-center gap-2.5 rounded-lg py-2 px-4
+                            <Link to="/dashboard" className={`group relative flex items-center gap-2.5 rounded-lg py-2 px-4
                                 duration-300 ease-in-out hover:!bg-[#3C0A6D] hover:!text-white ${pathname === '/dashboard'
                                     ? '!bg-[#3C0A6D] !text-white inter_semibold' : '!text-[#3C0A6D] inter_medium'}`}
                             >
@@ -90,29 +90,29 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                                     ${pathname === '/dashboard' ? 'text-white' : 'text-[#3C0A6D]'}`}
                                 />
                                 Dashboard
-                            </NavLink>
+                            </Link>
 
-                            <NavLink to="/blog" className={`group relative flex items-center gap-2.5 rounded-lg py-2 px-4
-                                duration-300 ease-in-out hover:!bg-[#3C0A6D] hover:text-white ${pathname === '/blog' ?
+                            <Link to="/blog" className={`group relative flex items-center gap-2.5 rounded-lg py-2 px-4
+                                duration-300 ease-in-out hover:!bg-[#3C0A6D] hover:!text-white ${pathname === '/blog' ?
                                     '!bg-[#3C0A6D] !text-white inter_semibold' : '!text-[#3C0A6D] inter_medium'}`}
                             >
                                 <FaBlog size={22} className={`group-hover:text-white 
-                                    ${pathname === '/blog' ? 'text-white' : 'text-[#3C0A6D]'}`}
+                                    ${pathname === '/blog' ? '!text-white' : 'text-[#3C0A6D]'}`}
                                 />
                                 Blog
-                            </NavLink>
+                            </Link>
                         </ul>
                     </nav>
                 </div>
 
                 <div className="py-4 px-4 lg:px-6 w-full">
-                    <NavLink to="/" className={`group relative flex items-center gap-2.5 rounded-lg ease-in-out px-4 
+                    <Link to="/" className={`group relative flex items-center gap-2.5 rounded-lg ease-in-out px-4 
                         inter_medium !text-[#3C0A6D] duration-300 py-2 hover:!bg-[#3C0A6D] hover:!text-white`}
                         onClick={handleLogout}
                     >
                         <FiLogOut size={22} className='text-[#3C0A6D] group-hover:text-white' />
                         Log Out
-                    </NavLink>
+                    </Link>
                 </div>
             </div>
         </aside>

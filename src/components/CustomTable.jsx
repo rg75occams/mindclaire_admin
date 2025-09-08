@@ -91,7 +91,7 @@ const CustomTable = ({ columns, data, isLoading = false, title }) => {
                                 <tr key={hg.id}>
                                     {hg.headers.map((header) => (
                                         <th key={header.id} colSpan={header.colSpan}
-                                            className="px-3 py-2 border border-gray-300 text-center select-none"
+                                            className="!px-3 !py-2 border border-gray-300 text-center select-none"
                                             onClick={header.column.getToggleSortingHandler()}
                                         >
                                             {header.isPlaceholder ? null : (
@@ -117,7 +117,7 @@ const CustomTable = ({ columns, data, isLoading = false, title }) => {
                                         ? "bg-gray-300 dark:bg-gray-600" : "bg-white dark:bg-gray-800"}`}
                                     >
                                         {row.getVisibleCells().map((cell) => (
-                                            <td key={cell.id} className="px-3 py-2 border border-gray-300 text-center text-sm">
+                                            <td key={cell.id} className="!px-3 border border-gray-300 text-center text-sm">
                                                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                             </td>
                                         ))}

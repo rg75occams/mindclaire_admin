@@ -137,7 +137,7 @@ const Blog = () => {
                     <div className="p-4 relative" onClick={(e) => e.stopPropagation()}>
                         <div className='flex justify-end absolute top-2 right-2'>
                             <button onClick={() => setSelectedImage(null)} className="flex cursor-pointer justify-center
-                                items-center w-7 h-7 rounded-full bg-black text-white text-xl"
+                                items-center w-7 h-7 !rounded-full bg-black !text-white !text-xl"
                             >
                                 <RxCross2 />
                             </button>
