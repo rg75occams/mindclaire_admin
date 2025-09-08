@@ -155,7 +155,7 @@ const CustomTable = ({ columns, data, isLoading = false, title }) => {
 
                         <div className="relative">
                             <select id="pageSize" name="pageSize" value={pageSize} className="border rounded px-2 py-1 
-                                pr-5 appearance-none cursor-pointer" onChange={(e) => {
+                                pr-7 appearance-none cursor-pointer" onChange={(e) => {
                                     setPageSize(Number(e.target.value));
                                     setPage(1);
                                 }}
