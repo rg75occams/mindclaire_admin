@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Light.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Inter-Medium';
+    src: url('/fonts/Inter-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Inter-SemiBold';
+    src: url('/fonts/Inter-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+.inter {
+    font-family: Inter;
+}
+
+.inter_medium {
+    font-family: Inter-Medium;
+}
+
+.inter_semibold {
+    font-family: Inter-SemiBold;
+}
+
+a:active,
+a:focus,
+a:hover {
+    text-decoration: none !important;
+}

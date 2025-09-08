@@ -1,0 +1,41 @@
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #c7c6c6;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8a2be2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8a2be2;
+}
+
+
+/* react quill custom css */
+
+.description .ql-container {
+    height: 150px;
+    border: none !important;
+}
+
+.description .ql-toolbar.ql-snow {
+    border: none;
+    border-bottom: 1px solid #A3A3A3;
+}
+
+.ql-editor.ql-blank::before {
+    font-family: 'Inter', sans-serif;
+    color: #A3A3A3;
+    font-size: 15.5px;
+    font-style: normal !important;
+}
+
+.rs-input-group {
+    padding: 3px 0px !important;
+    border-color: #A3A3A3 !important;
+    border-radius: 8px;
+}
