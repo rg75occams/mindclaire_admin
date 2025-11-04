@@ -3,10 +3,13 @@ import CardData from '../components/CardData'
 import { FaBlog } from 'react-icons/fa'
 import { GrResources } from 'react-icons/gr'
 import { MdEmojiEvents, MdPermMedia } from 'react-icons/md'
+import PageTitle from '../components/PageTitle'
 
 const Dashboard = () => {
     return (
         <Fragment>
+            <PageTitle title="Mindclaire | Dashboard" /> 
+
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
                 <CardData title="Total Blogs" total={1} rate="0%" levelUp>
                     <FaBlog size={22} className="text-[#3C0A6D]" />

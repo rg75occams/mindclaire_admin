@@ -1,72 +1,44 @@
+import AppRouter from "./navigation/AppRouter";
+import { Fragment, useEffect, useLayoutEffect, useState } from "react";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import store, { persistor } from "./features/store";
+import { Toaster } from "react-hot-toast";
 import './App.css';
-import Layout from './Layout';
-import { Fragment, useEffect, useState } from 'react';
-import { Routes, Navigate } from 'react-router-dom';
-import { Route, useLocation } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import PageTitle from './components/PageTitle';
-import useLocalStorage from './hooks/useLocalStorage';
-import { LOCAL_STORAGE } from './constant';
-import Blog from './pages/Blog';
-import AddBlog from './pages/AddBlog';
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useLocalStorage(LOCAL_STORAGE.IS_AUTHENTICATED, false);
-  const { pathname } = useLocation();
+    const [mode, setMode] = useState("light");
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    useLayoutEffect(() => {
+        const savedMode = localStorage?.getItem("theme_mode");
+        if (savedMode) {
+            setMode(savedMode);
+        } else {
+            const systemPrefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+            const initialMode = systemPrefersDark ? "dark" : "light";
+            setMode(initialMode);
+            localStorage?.setItem("theme_mode", initialMode);
+        }
+    }, []);
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
+    useEffect(() => {
+        document.body.setAttribute("data-theme", mode);
+    }, [mode]);
 
-  useEffect(() => {
-    const checkAuth = () => {
-      const user = localStorage.getItem(LOCAL_STORAGE.USER);
-      if (user) {
-        setIsAuthenticated(true);
-      } else {
-        setIsAuthenticated(false);
-      }
-    };
-    checkAuth();
-  }, [setIsAuthenticated]);
+    return (
+        <Fragment>
+            <Provider store={store}>
+                <PersistGate loading={null} persistor={persistor}>
+                    <AppRouter />
+                </PersistGate>
+            </Provider>
 
-  return (
-    <Fragment>
-
-      {/* {isAuthenticated ? ( */}
-      <Layout>
-        <Routes>
-          <Route path="/dashboard" element={
-            <Fragment>
-              <PageTitle title="Mindclaire | Dashboard" /> <Dashboard />
-            </Fragment>
-          } />
-
-          <Route path="/blog"
-            element={
-              <Fragment>
-                <PageTitle title="Mindclaire | Blog List" /> <Blog />
-              </Fragment>
-            }
-          />
-          <Route path="/blog/add-blog"
-            element={
-              <Fragment>
-                <PageTitle title="Mindclaire | Add Blog" /> <AddBlog />
-              </Fragment>
-            }
-          />
-
-          <Route path="*" element={<Navigate to="/dashboard" />} />
-        </Routes>
-      </Layout>
-    </Fragment>
-  );
+            <Toaster position="top-right" toastOptions={{
+                success: { style: { background: "green", color: "white" } },
+                error: { style: { background: "red", color: "white" } },
+            }} />
+        </Fragment>
+    );
 };
 
 export default App
