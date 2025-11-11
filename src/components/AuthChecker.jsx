@@ -11,13 +11,13 @@ export function RequireAuth({ componentTitle }) {
 
     if (isAuthenticated) {
         return (
-            <Navigate to="/" state={{ from: location, reason: "unauthenticated" }} replace />
+            <Navigate to="/admin/login" state={{ from: location, reason: "unauthenticated" }} replace />
         );
     }
 
     if (!isAuthenticated && !permissions?.view) {
         return (
-            <Navigate to="/not-allowed" state={{ from: location, reason: "unauthorized" }} replace />
+            <Navigate to="/admin/not-allowed" state={{ from: location, reason: "unauthorized" }} replace />
         );
     }
     return <Layout />
@@ -30,7 +30,7 @@ export function PublicRoutes() {
         return <Outlet />
     }
     const query = location?.state?.from?.search || "";
-    const pathname = location?.state?.from?.pathname || "/dashboard";
+    const pathname = location?.state?.from?.pathname || "/admin/dashboard";
     const to = query ? pathname + query : pathname;
 
     return <Navigate to={to} state={{ from: location }} replace />

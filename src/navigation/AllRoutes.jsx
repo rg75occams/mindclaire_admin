@@ -7,27 +7,27 @@ const AddBlog = lazy(() => import("../pages/Blog/AddBlog"));
 
 export const allRoutes = [
     {
-        path: "/dashboard",
+        path: "/admin/dashboard",
         element: <Dashboard />,
         title: "Dashboard",
     },
     {
-        path: "/blog",
-        element: <Navigate to="/blog" replace />,
+        path: "/admin/blog",
+        element: <Navigate to="/admin/blog" replace />,
         title: "Blog",
         submodules: [
             {
-                path: "/blog",
+                path: "/admin/blog/view-blog",
                 element: <Blog componentTitle={"Blog"} />,
                 title: "Blog",
             },
             {
-                path: "/blog/add-blog",
+                path: "/admin/blog/add-blog",
                 element: <AddBlog componentTitle={"Blog"} />,
                 title: "Blog",
             },
             {
-                path: "/blog/edit-blog/:blogId",
+                path: "/admin/blog/edit-blog/:blogId",
                 element: <AddBlog componentTitle={"Blog"} />,
                 title: "Blog",
             },

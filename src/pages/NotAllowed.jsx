@@ -4,7 +4,7 @@ const NotAllowed = () => {
     return (
         <div className="min-h-[81vh] flex flex-col items-center justify-center gap-10 px-4">
             <h2 className="flex items-center uppercase text-4xl sm:text-5xl lg:text-6xl text-center inter_semibold
-                bg-gradient-to-br from-fuchsia-500 to-indigo-500 bg-clip-text text-transparent"
+                bg-linear-to-br from-fuchsia-500 to-indigo-500 bg-clip-text text-transparent"
             >
                 404 not found
             </h2>
@@ -26,9 +26,9 @@ const NotAllowed = () => {
                             You are not allowed to view this page!!
                         </h4>
 
-                        <Link to='/' className=" inline-flex items-center justify-center rounded-md !border-[#3C0A6D] 
+                        <Link to='/admin/login' className=" inline-flex items-center justify-center rounded-md border-[#3C0A6D]! 
                             border px-4 pt-2 pb-[7px] text-[#3C0A6D] text-base inter_medium hover:bg-[#3C0A6D] 
-                            hover:border-0 hover:!text-white focus:outline-none"
+                            hover:border-0 hover:text-white! focus:outline-none"
                         >
                             Back to Home Page
                         </Link>

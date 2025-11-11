@@ -15,17 +15,29 @@ export const CONSTANTS = {
 };
 
 export const SA_MENU_LIST = [{
-        id: 1,
-        title: "Dashboard",
-        path: "/dashboard",
-        permissions: { create: true, delete: true, edit: true, view: true },
-        icon: "RxDashboard",
-    },
-    {
-        id: 5,
-        title: "Blog",
-        path: "/blog",
-        permissions: { create: true, delete: true, edit: true, view: true },
-        icon: "FaBlog",
-    },
+    id: 1,
+    title: "Dashboard",
+    path: "/admin/dashboard",
+    permissions: { create: true, delete: true, edit: true, view: true },
+    icon: "RxDashboard",
+},
+{
+    id: 5,
+    title: "Blog",
+    path: "/admin/blog",
+    permissions: { create: true, delete: true, edit: true, view: true },
+    icon: "FaBlog",
+    children: [
+        {
+            id: 6,
+            title: "Add Blog",
+            path: "/admin/blog/add-blog",
+        },
+        {
+            id: 7,
+            title: "View Blog",
+            path: "/admin/blog/view-blog",
+        },
+    ],
+},
 ]

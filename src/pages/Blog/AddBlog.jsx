@@ -83,8 +83,8 @@ const AddBlog = () => {
                             </div>
 
                             <div className="mt-5">
-                                <button type="submit" className="px-6 py-2 bg-[#3C0A6D] !text-white 
-                                cursor-pointer hover:bg-[#250644] transition !rounded-md inter_medium"
+                                <button type="submit" className="px-6 py-2 bg-[#3C0A6D] text-white! 
+                                cursor-pointer hover:bg-[#250644] transition rounded-md! inter_medium"
                                 >
                                     Submit
                                 </button>

@@ -123,15 +123,7 @@ const Blog = () => {
         <Fragment>
             <PageTitle title="Mindclaire | Blog List" /> 
 
-            <div className="flex justify-end">
-                <Link to="/blog/add-blog"
-                    className="px-6 py-1.5 !bg-[#3C0A6D] w-max !text-white inter_medium rounded-md"
-                >
-                    Add Blog
-                </Link>
-            </div>
-
-            <div className="shadow-md w-full bg-white p-4 mt-5 rounded-lg">
+            <div className="shadow-md w-full bg-white p-4 md:p-6 rounded-lg">
                 <CustomTable columns={columns} data={blogs} title={"Blog List"} />
             </div>
 
@@ -140,7 +132,7 @@ const Blog = () => {
                     <div className="p-4 relative" onClick={(e) => e.stopPropagation()}>
                         <div className='flex justify-end absolute top-2 right-2'>
                             <button onClick={() => setSelectedImage(null)} className="flex cursor-pointer justify-center
-                                items-center w-7 h-7 !rounded-full bg-black !text-white !text-xl"
+                                items-center w-7 h-7 rounded-full! bg-black text-white! text-xl!"
                             >
                                 <RxCross2 />
                             </button>

@@ -4,17 +4,20 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --open /admin/login",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.0",
+    "@tailwindcss/postcss": "^4.1.16",
     "@tailwindcss/vite": "^4.1.12",
     "@tanstack/react-table": "^8.21.3",
+    "autoprefixer": "^10.4.21",
     "formik": "^2.4.6",
     "lucide-react": "^0.542.0",
+    "postcss": "^8.5.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hot-toast": "^2.6.0",
@@ -26,7 +29,7 @@
     "react-select": "^5.10.2",
     "redux-persist": "^6.0.0",
     "rsuite": "^5.83.3",
-    "tailwindcss": "^4.1.12",
+    "tailwindcss": "^4.1.16",
     "yup": "^1.7.0"
   },
   "devDependencies": {

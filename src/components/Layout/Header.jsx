@@ -27,7 +27,7 @@ const Header = () => {
         handleResetApi();
         dispatch(openMenus());
         dispatch(logout());
-        navigate("/", { replace: true });
+        navigate("/admin/login", { replace: true });
     };
 
     const toggleDrawer = (e) => {
@@ -47,9 +47,9 @@ const Header = () => {
 
     return (
         <header className="sticky top-0 z-999 flex w-full bg-[#9D4EDD] font-inter border-b border-[#A3A3A3] shadow-sm">
-            <div className="flex items-center w-full md:!justify-end justify-between px-4 md:px-6 py-[13px]">
+            <div className="flex items-center w-full md:justify-end! justify-between px-4 md:px-6 py-[13px]">
                 <button onClick={toggleDrawer} aria-label="menu" title="Toggle Menu"
-                    className="items-center justify-center !rounded-md p-2 bg-gray-100 cursor-pointer block md:hidden"
+                    className="items-center justify-center rounded-md! p-2 bg-gray-100 cursor-pointer block md:hidden"
                 >
                     <AiOutlineMenu className='text-2xl text-black' />
                 </button>

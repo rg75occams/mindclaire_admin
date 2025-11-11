@@ -37,7 +37,7 @@ const Login = () => {
     //       dispatch(signin(res?.data));
     //       toast.success(res.message);
     //       // optional: redirect to dashboard after successful login
-    //       // navigate("/dashboard", { replace: true });
+    //       // navigate("/admin/dashboard", { replace: true });
     //     }
     //   } catch (error) {
     //     // ensure readable error
@@ -72,11 +72,11 @@ const Login = () => {
                     <img loading="lazy" src="/assets/logo.svg" alt="Logo" className="md:h-[50px] h-11" />
                 </div>
 
-                <h1 className="text-center !text-2xl inter_semibold text-black !mt-5">
+                <h1 className="text-center text-2xl! inter_semibold text-black mt-5!">
                     Login to Account
                 </h1>
 
-                <p className="text-center !text-lg inter_medium !mt-1">
+                <p className="text-center text-lg! inter_medium mt-1!">
                     Please enter your email and password to continue
                 </p>
 
@@ -109,13 +109,13 @@ const Login = () => {
                             </div>
 
                             <div className="flex justify-end">
-                                <Link to="/forgot-password" className="!text-base inter_medium !text-[#3C0A6D] mt-3">
+                                <Link to="/admin/forgot-password" className="text-base! inter_medium text-[#3C0A6D]! mt-3">
                                     Forgot Password?
                                 </Link>
                             </div>
 
-                            <button type="submit" className={`!mt-3 w-full inline-flex bg-[#3C0A6D] items-center
-                                inter_medium justify-center !rounded-md px-4 py-2.5 !text-white`}
+                            <button type="submit" className={`mt-3! w-full inline-flex bg-[#3C0A6D] items-center
+                                inter_medium justify-center rounded-md! px-4 py-2.5 text-white!`}
                             >
                                 Sign in
                             </button>

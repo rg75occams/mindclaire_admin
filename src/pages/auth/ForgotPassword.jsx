@@ -29,7 +29,7 @@ const ForgotPassword = () => {
     //       dispatch(signin(res?.data));
     //       toast.success(res.message);
     //       // optional: redirect to dashboard after successful login
-    //       // navigate("/dashboard", { replace: true });
+    //       // navigate("/admin/dashboard", { replace: true });
     //     }
     //   } catch (error) {
     //     // ensure readable error
@@ -64,11 +64,11 @@ const ForgotPassword = () => {
                     <img loading="lazy" src="/assets/logo.svg" alt="Logo" className="md:h-[50px] h-11" />
                 </div>
 
-                <h1 className="text-center !text-2xl inter_semibold text-black !mt-5">
+                <h1 className="text-center text-2xl! inter_semibold text-black mt-5!">
                     Forgot Password
                 </h1>
 
-                <p className="text-center !text-lg inter_medium !mt-1">
+                <p className="text-center text-lg! inter_medium mt-1!">
                     Please enter your email and password to continue
                 </p>
 
@@ -83,8 +83,8 @@ const ForgotPassword = () => {
                                 />
                             </div>
 
-                            <button type="submit" className={`!mt-4 w-full inline-flex bg-[#3C0A6D] items-center
-                                inter_medium justify-center !rounded-md px-4 py-2.5 !text-white`}
+                            <button type="submit" className={`mt-4! w-full inline-flex bg-[#3C0A6D] items-center
+                                inter_medium justify-center rounded-md! px-4 py-2.5 text-white!`}
                             >
                                 Send OTP
                             </button>

@@ -16,8 +16,8 @@ const AppRouter = () => {
         <Suspense fallback={<Loader />}>
             <Routes>
                 <Route element={<PublicRoutes />}>
-                    <Route path="/" element={<Login />} />
-                    <Route path="/forgot-password" element={<ForgotPassword />} />
+                    <Route path="/admin/login" element={<Login />} />
+                    <Route path="admin/forgot-password" element={<ForgotPassword />} />
                 </Route>
 
                 {allRoutes.map((route, index) =>
@@ -34,11 +34,11 @@ const AppRouter = () => {
                     )
                 )}
                 
-                <Route path="/test" element={<Layout />}>
+                <Route path="/admin/test" element={<Layout />}>
                     <Route index element={<Test />} />
                 </Route>
 
-                <Route path="/not-allowed" element={<Layout />}>
+                <Route path="/admin/not-allowed" element={<Layout />}>
                     <Route index element={<NotAllowed />} />
                 </Route>
 
