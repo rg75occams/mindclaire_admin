@@ -30,13 +30,23 @@ export const SA_MENU_LIST = [{
     children: [
         {
             id: 6,
-            title: "Add Blog",
-            path: "/admin/blog/add-blog",
+            title: "View Category",
+            path: "/admin/blog/category",
         },
         {
             id: 7,
+            title: "Add Category",
+            path: "/admin/blog/add-category",
+        },
+        {
+            id: 8,
             title: "View Blog",
             path: "/admin/blog/view-blog",
+        },
+        {
+            id: 9,
+            title: "Add Blog",
+            path: "/admin/blog/add-blog",
         },
     ],
 },

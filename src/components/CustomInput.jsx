@@ -1,8 +1,8 @@
 import { ErrorMessage, useField } from "formik";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
-import CreatableSelect from "react-select/creatable";
+import Select from "react-select";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { DatePicker, TimePicker } from "rsuite";
@@ -47,26 +47,7 @@ const CustomInput = ({
 }) => {
   const [field, meta, helpers] = useField({ name, type, ...props });
   const [isFocused, _] = useState(false);
-  const [customOptions, setCustomOptions] = useState([]);
   const quillRef = useRef(null);
-
-  useEffect(() => {
-    const stored = localStorage.getItem(name + "_options");
-    if (stored) {
-      setCustomOptions(JSON.parse(stored));
-    } else {
-      setCustomOptions(options);
-    }
-  }, [name]);
-
-  const handleAddOption = (inputValue) => {
-    const newOption = { value: inputValue, label: inputValue };
-    const updated = [...customOptions, newOption];
-    setCustomOptions(updated);
-    localStorage.setItem(name + "_options", JSON.stringify(updated));
-
-    helpers.setValue(isMulti ? [...(field.value || []), inputValue] : inputValue);
-  };
 
   const getTableModule = () => {
     const quill = quillRef.current?.getEditor?.();
@@ -83,29 +64,29 @@ const CustomInput = ({
             'border-[#FF0000]! dark:border-[#FF0000]!' : isFocused ? 'border-blue-700 dark:border-blue-700' :
               'border-[#A3A3A3] dark:border-form-strokedark'}`}
           >
-            <div className="flex flex-wrap gap-2 p-2 border-b border-[#A3A3A3] dark:border-form-strokedark">
-              <button type="button" className="px-2 py-1 text-sm border rounded" onClick={() => {
+            <div className="flex flex-wrap gap-2 p-2 border-b border-[#A3A3A3] text-[#111827] inter_medium">
+              <button type="button" className="px-2 py-1 text-sm" onClick={() => {
                 focusEditor();
                 getTableModule()?.insertRowBelow?.();
               }}>
-                + Row Below
+                Add Row
               </button>
 
-              <button type="button" className="px-2 py-1 text-sm border rounded" onClick={() => {
+              <button type="button" className="px-2 py-1 text-sm" onClick={() => {
                 focusEditor();
                 getTableModule()?.insertColumnRight?.();
               }}>
-                + Col Right
+                Add Col
               </button>
 
-              <button type="button" className="px-2 py-1 text-sm border rounded" onClick={() => {
+              <button type="button" className="px-2 py-1 text-sm" onClick={() => {
                 focusEditor();
                 getTableModule()?.deleteRow?.();
               }}>
                 Delete Row
               </button>
 
-              <button type="button" className="px-2 py-1 text-sm border rounded" onClick={() => {
+              <button type="button" className="px-2 py-1 text-sm" onClick={() => {
                 focusEditor();
                 getTableModule()?.deleteColumn?.();
               }}>
@@ -155,10 +136,9 @@ const CustomInput = ({
         );
       case "select":
         return (
-          <CreatableSelect isMulti={false} options={customOptions}
-            value={customOptions.find((opt) => opt.value === field.value) || null}
+          <Select isMulti={false} options={options} placeholder={placeholder} isClearable
+            value={options.find((opt) => opt.value === field.value) || null}
             onChange={(opt) => helpers.setValue(opt ? opt.value : "")}
-            onCreateOption={handleAddOption} placeholder={placeholder}
             classNames={{
               control: (state) => `!min-h-[41px] w-full !rounded-lg border-[1.5px] bg-transparent text-black 
                 dark:bg-form-input dark:text-white ${meta.touched && meta.error ? "!border-[#FF0000] dark:!border-[#FF0000]" :
@@ -174,10 +154,9 @@ const CustomInput = ({
         );
       case "multiselect":
         return (
-          <CreatableSelect isMulti options={customOptions}
-            value={customOptions.filter((opt) => field.value?.includes(opt.value))}
-            onChange={(opt) => helpers.setValue(opt ? opt.map((o) => o.value) : [])}
-            onCreateOption={handleAddOption} placeholder={placeholder}
+          <Select isMulti options={options} value={options.filter((opt) => field.value?.includes(opt.value))}
+            onChange={(opt) => helpers.setValue(opt ? opt.map((data) => data.value) : [])}
+            placeholder={placeholder}
             classNames={{
               control: (state) => `!min-h-[41px] w-full !rounded-lg border-[1.5px] bg-transparent text-black 
                 dark:bg-form-input dark:text-white ${meta.touched && meta.error ? "border-[#FF0000]! dark:border-[#FF0000]!" :
@@ -269,7 +248,7 @@ const CustomInput = ({
 
   return (
     <div>
-      <label className="mb-1 block text-[#111827] inter_medium dark:text-white">
+      <label className="mb-1.5 block text-[#111827] inter_medium">
         {label} {required && <span className="text-[#dc3545]">*</span>}
       </label>
       {renderField()}

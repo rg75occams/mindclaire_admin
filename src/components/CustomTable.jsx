@@ -39,7 +39,7 @@ const CustomTable = ({ columns, data, isLoading = false, title }) => {
         <Fragment>
             <div className="grid grid-cols-12 gap-4 items-center mb-4">
                 <div className="col-span-12 lg:col-span-3">
-                    <h2 className="text-xl font-semibold">{title}</h2>
+                    <h2 className="text-xl inter_semibold">{title}</h2>
                 </div>
 
                 <div className="col-span-12 lg:col-span-9 flex lg:justify-end gap-4 items-center">

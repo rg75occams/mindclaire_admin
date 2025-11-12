@@ -46,7 +46,7 @@ const Header = () => {
     }, []);
 
     return (
-        <header className="sticky top-0 z-999 flex w-full bg-[#9D4EDD] font-inter border-b border-[#A3A3A3] shadow-sm">
+        <header className="sticky top-0 z-999 flex w-full bg-[#9D4EDD] inter border-b border-[#A3A3A3] shadow-sm">
             <div className="flex items-center w-full md:justify-end! justify-between px-4 md:px-6 py-[13px]">
                 <button onClick={toggleDrawer} aria-label="menu" title="Toggle Menu"
                     className="items-center justify-center rounded-md! p-2 bg-gray-100 cursor-pointer block md:hidden"

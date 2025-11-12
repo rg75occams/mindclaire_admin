@@ -18,6 +18,12 @@
     font-weight: 600;
 }
 
+@font-face {
+    font-family: 'Inter-Bold';
+    src: url('/fonts/Inter-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
 .inter {
     font-family: Inter;
 }
@@ -28,6 +34,10 @@
 
 .inter_semibold {
     font-family: Inter-SemiBold;
+}
+
+.inter_bold {
+    font-family: Inter-Bold;
 }
 
 a:active,

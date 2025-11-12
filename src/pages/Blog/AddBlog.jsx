@@ -32,7 +32,7 @@ const AddBlog = () => {
             <PageTitle title="Mindclaire | Add Blog" />
 
             <div className='shadow-md w-full bg-white p-4 rounded-lg'>
-                <h2 className='text-lg font-semibold mb-5'>Add Blog</h2>
+                <h2 className='text-lg inter_semibold mb-4!'>Add Blog</h2>
 
                 <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
                     {({ setFieldValue, values, errors, touched }) => (

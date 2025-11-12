@@ -7,8 +7,8 @@ const CardData = ({ title, total, children }) => {
 
             <div className="mt-4 flex items-end justify-between">
                 <div>
-                    <h4 className="text-title-md font-bold text-black">{total}</h4>
-                    <span className="text-sm font-medium">{title}</span>
+                    <h4 className="text-title-md inter_bold text-black">{total}</h4>
+                    <span className="text-sm inter_medium">{title}</span>
                 </div>
             </div>
         </div>

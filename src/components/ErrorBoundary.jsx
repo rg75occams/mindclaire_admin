@@ -27,7 +27,7 @@ class ErrorBoundary extends React.Component {
                 <div className="h-[calc(100vh-150px)] flex items-center justify-center">
                     <div className="text-center">
                         <AlertTriangle className="mx-auto" size={80} style={{ color: "var(--main-color)" }} />
-                        <h1 className="mt-3 text-2xl font-bold text-black dark:text-white">
+                        <h1 className="mt-3 text-2xl inter_bold text-black dark:text-white">
                             {process.env.NODE_ENV !== "production" ? this.state.errorMessage : "Something went wrong"}
                         </h1>
 
